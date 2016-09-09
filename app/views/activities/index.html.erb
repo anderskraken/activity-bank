@@ -1,0 +1,19 @@
+<h1>Aktiviteter</h1>
+
+<%= link_to 'Ny aktivitet', new_activity_path %>
+
+
+<table>
+  <tr>
+    <th>Tittel</th>
+    <th>Tekst</th>
+  </tr>
+
+  <% @activities.each do |activity| %>
+    <tr>
+      <td><%= activity.title %></td>
+      <td><%= activity.body %></td>
+      <td><%= link_to 'Show', activity_path(activity) %></td>
+    </tr>
+  <% end %>
+</table>
