@@ -7,13 +7,26 @@
   <tr>
     <th>Tittel</th>
     <th>Tekst</th>
+    <th>Deltagere</th>
+    <th>Tid</th>
+    <th>Ressurser</th>
+    <th>Sted</th>
+    <th colspan="3"></th>
   </tr>
 
   <% @activities.each do |activity| %>
     <tr>
       <td><%= activity.title %></td>
       <td><%= activity.body %></td>
-      <td><%= link_to 'Show', activity_path(activity) %></td>
+      <td><%= activity.participants %></td>
+      <td><%= activity.time_req %></td>
+      <td><%= activity.resources_req %></td>
+      <td><%= activity.location_req %></td>
+      <td><%= link_to 'Vis', activity_path(activity) %></td>
+      <td><%= link_to 'Rediger', edit_activity_path(activity) %></td>
+      <td><%= link_to 'Slett', activity_path(activity),
+              method: :delete,
+              data: { confirm: 'Er du sikker?' } %></td>
     </tr>
   <% end %>
 </table>
