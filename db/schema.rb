@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20160911033903) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -31,7 +34,8 @@ ActiveRecord::Schema.define(version: 20160911033903) do
     t.integer  "activity_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["activity_id"], name: "index_reviews_on_activity_id"
+    t.index ["activity_id"], name: "index_reviews_on_activity_id", using: :btree
   end
 
+  add_foreign_key "reviews", "activities"
 end
