@@ -1,0 +1,20 @@
+  <p>
+    <strong>Skrevet av:</strong>
+    <%= review.reviewer_id %>
+  </p>
+
+  <p>
+    <strong>Anmeldelse:</strong>
+    <%= review.body %>
+  </p>
+
+  <p>
+    <strong>Poeng:</strong>
+    <%= review.rating %>
+  </p>
+
+  <p>
+    <%= link_to 'Slett anmeldelse', [review.activity, review],
+                 method: :delete,
+                 data: { confirm: 'Er du sikker?' } %>
+  </p>
