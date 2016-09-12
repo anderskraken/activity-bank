@@ -8,7 +8,6 @@
   <%= @activity.body %>
 </p>
 
-
 <p>
   <strong>Deltagere:</strong>
   <%= @activity.participants %>
@@ -26,6 +25,12 @@
   <%= @activity.location_req %>
 </p>
 
+<h2>Anmeldelser</h2>
+<%= render @activity.reviews %>
 
-<%= link_to 'Rediger', edit_activity_path(@activity) %> | 
+
+<h2>Skriv en anmeldelse:</h2>
+<%= render 'reviews/form' %>
+
+<%= link_to 'Rediger', edit_activity_path(@activity) %> |
 <%= link_to 'Tilbake', activities_path %>

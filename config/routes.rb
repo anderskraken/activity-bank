@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-
-	resources :activities
+  resources :activities do
+    resources :reviews
+  end
 
   root 'welcome#index'
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909185829) do
+ActiveRecord::Schema.define(version: 20160911033903) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20160909185829) do
     t.string   "location_req"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "reviewer_id"
+    t.text     "body"
+    t.integer  "rating"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["activity_id"], name: "index_reviews_on_activity_id"
   end
 
 end
